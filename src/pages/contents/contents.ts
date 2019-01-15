@@ -8,9 +8,7 @@ import { EditInterventionPage } from '../edit-intervention/edit-intervention';
 import { AddProblemPage } from '../add-problem/add-problem';
 import { AddGoalPage } from '../add-goal/add-goal';
 import { AddInterventionPage } from '../add-intervention/add-intervention';
-import { AuthenticationProvider } from '../../providers/authentication/authentication';
 import { HelpPage } from '../help/help';
-import { LoginPage } from '../login/login';
 import { TextPlanPage } from '../text-plan/text-plan';
 import { LookupPlanPage } from '../lookup-plan/lookup-plan';
 import { PlanMenuPage } from '../plan-menu/plan-menu';
@@ -36,7 +34,6 @@ export class ContentsPage {
     public popup: PopoverController,
     private ds: DragulaService,
     private alertCtrl: AlertController,
-    public auth: AuthenticationProvider,
     public PPP: PersonalPlansProvider) {
     this.plan = navParams.get('plan');
 
@@ -368,27 +365,5 @@ export class ContentsPage {
   help() {
     this.navCtrl.push(HelpPage);
   }
-  login() {
-    this.navCtrl.push(LoginPage);
-  }
-  logout() {
-    // confirm before logout
-    let prompt = this.alertCtrl.create({
-      title: 'Confirm Log Out',
-      buttons: [
-        {
-          text: "No, don't log out",
-          role: 'cancel'
-        },
-        {
-          text: 'Yes, log out',
-          handler: () => {
-            // this.PPP.write();
-            this.auth.logout();
-          }
-        }
-      ]
-    });
-    prompt.present();
-  }
+
 }
