@@ -1,0 +1,23 @@
+<ion-header>
+
+  <ion-navbar class="navbarStyle" color="primary">
+    <ion-title><em>welcome to</em></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding id="welcome">
+
+  <div text-center>
+    <img src="assets/imgs/TMFun600.png" class="logo" />
+    <h1>Care Planning Made Easy</h1>
+  </div>
+
+  <br>
+
+  <div text-center>
+    <button ion-button icon-right (click)="goToWork()">
+      CONTINUE
+    </button>
+    <h4 (click)="showTerms()">Using the app indicates you accept the <span class="underline">License Agreement.</span></h4>
+  </div>
+</ion-content>

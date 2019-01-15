@@ -1,0 +1,43 @@
+page-preview {
+    .ptext { 
+        font-size: 1.4rem; 
+        word-break: normal;
+        white-space: normal;
+    }
+    .prob { 
+        color: red;
+        margin-top: 1.2rem;
+    }
+    .goal { 
+        color: green;
+        margin-top: 0.8rem;
+        margin-left: 1rem;
+    }
+    // .goalCheck { 
+    //     background-color: green !important;
+    // }
+    .int { 
+        color: blue;
+        margin-top: 0.4rem;
+        margin-left: 1rem;
+        margin-bottom: 0;
+    }
+    // .intCheck { 
+    //     background-color: blue !important;
+    // }
+    .dsc { 
+        color: blue;
+        margin-top: 0;
+        margin-left: 2.2rem;
+        margin-bottom: 0;
+    }    
+    .h1text {
+        font-size: 1.6rem;
+    }
+    button {
+        color: color($colors, light);
+        background-color: color($colors, primary);
+        font-size: 1.4rem;
+        margin-left: 2.2rem;
+    }
+}

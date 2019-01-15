@@ -1,0 +1,84 @@
+<ion-header>
+
+  <ion-navbar class="navbarStyle" color="primary">
+    <ion-title>Care Plan</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="help()">
+        <ion-icon name="help"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="divHeader">
+    <button class="tool" (click)="planMenu($event)">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <span (click)="editPlan()">{{plan.name}}</span>
+  </div>
+  <ion-grid>
+    <div *ngFor="let p of plan.problems; let i = index">
+      <div>
+        <ion-row>
+          <ion-col col-1>
+            <ion-icon class="expandTool" [name]="p.icon" (click)="toggleProblemExpand(p)"></ion-icon>
+          </ion-col>
+          <ion-col col-10><span class="problem" (click)="problemEdit(p)">{{p.text}}</span></ion-col>
+          <ion-col col-1>
+            <button *ngIf="p.expanded" class="tool" (click)="topicMenu($event, p)">
+              <ion-icon name="menu"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+        <div io-item *ngIf="p.expanded">
+          <ion-list no-margin [dragula]='"goal-list"' [(dragulaModel)]="p.goals">
+            <div ion-item no-lines *ngFor="let g of p.goals">
+              <ion-row no-padding align-items-center>
+                <ion-col col-1 no-padding>
+                </ion-col>
+                <ion-col col-9 no-padding>
+                  <p class="goal" (click)="goalEdit(g)">
+                    <span class="probId" hidden>{{i}}</span>
+                    {{g.text}} <em>{{goalTerm(g)}}</em>
+                  </p>
+                </ion-col>
+                <ion-col col-1 no-padding>
+                  <button class="trash" (click)="goalDelete(p, g)">
+                    <ion-icon name="trash"></ion-icon>
+                  </button>
+                </ion-col>
+              </ion-row>
+            </div>
+          </ion-list>
+          <ion-list no-margin [dragula]='"int-list"' [(dragulaModel)]="p.interventions">
+            <div ion-item no-lines *ngFor="let n of p.interventions">
+              <ion-row no-padding align-items-center>
+                <ion-col col-1 no-padding>
+                </ion-col>
+                <ion-col col-9 no-padding>
+                  <p class="intervention" (click)="interventionEdit(n)">
+                    <span class="probId" hidden>{{i}}</span>
+                    {{n.text}}
+                  </p>
+                </ion-col>
+                <ion-col col-1 no-padding>
+                  <button class="trash" (click)="interventionDelete(p, n)">
+                    <ion-icon name="trash"></ion-icon>
+                  </button>
+                </ion-col>
+              </ion-row>
+              <ion-row no-padding>
+                <ion-col col-1 no-padding></ion-col>
+                <ion-col col-9 no-padding class="discipline">
+                  <em>{{discList(n)}}</em>
+                </ion-col>
+                <ion-col col-1 no-padding></ion-col>
+              </ion-row>
+            </div>
+          </ion-list>
+        </div>
+      </div>
+    </div>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,19 @@
+page-careplan {
+
+    .plan {
+        color:black;
+        font-size: 20px;
+    }
+     .tool {
+        font-size: 1.4rem;
+        margin-left: 0.4rem;
+        color: grey;
+        background-color: color($colors, light);
+    }
+    .addButton {
+        z-index: 100;
+        position: absolute;
+        // left: 300px;
+        top: 60px;
+    }
+}

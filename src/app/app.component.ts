@@ -1,22 +1,32 @@
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { WelcomePage } from '../pages/welcome/welcome';
 
-import { HomePage } from '../pages/home/home';
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = HomePage;
+  rootPage: any;
+  timer: any;
+  // constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  constructor(platform: Platform
+    , splashScreen: SplashScreen) {
+    // ){
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      statusBar.styleDefault();
-      splashScreen.hide();
-    });
+      console.log('platform ready')
+      if (platform.is('cordova')) { console.log('cordova');}
+      this.timer = setTimeout(() => {
+        if (platform.is('cordova')) {
+          // for ios quirks
+          // console.log('splashscreen hide');
+          splashScreen.hide();
+        }
+        // console.log('setting rootPage');
+        this.rootPage = WelcomePage;
+      }, 2000);
+    }); 
   }
 }
 

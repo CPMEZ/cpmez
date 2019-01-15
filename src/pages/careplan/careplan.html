@@ -1,0 +1,37 @@
+<ion-header>
+
+
+  <ion-navbar class="navbarStyle" color="primary">
+    <!-- dbclick easter egg -->
+    <ion-title (press)="easterEgg()" (dblclick)="easterEgg()">My Care Plans</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="help()">
+        <ion-icon name="help"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <div align="right">
+    <button ion-button icon-left (click)="addPlan()">
+      <ion-icon name="add"></ion-icon>
+      Create a New Plan
+    </button>
+  </div>
+  <p class="helpful" *ngIf="PPP.plans.length > 0">Care plans I've created:</p>
+  <p class="helpful" *ngIf="PPP.plans.length == 0">You haven't created any plans yet--select Create a New Plan to get started.</p>
+  <!-- <ion-list> -->
+  <ion-list [dragula]='"plan-list"' [(dragulaModel)]="PPP.plans">
+    <div ion-item text-wrap no-lines *ngFor="let p of PPP.plans; let i = index">
+      <p class="plan">
+        <span class="planId" hidden>{{i}}</span>
+        <span (click)="contents(p)">
+          {{p.name}}
+          <ion-icon name="create" class="tool"></ion-icon>
+        </span>
+      </p>
+    </div>
+  </ion-list>
+</ion-content>
