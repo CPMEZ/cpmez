@@ -17,7 +17,6 @@ import { MyApp } from './app.component';
 
 import { PersonalPlansProvider } from '../providers/personal-plans/personal-plans';
 import { LocalStoreProvider } from '../providers/local-store/local-store';
-import { CacheProvider } from '../providers/cache/cache';
 
 import { WelcomePage } from '../pages/welcome/welcome';
 import { CarePlanPage } from '../pages/careplan/careplan';
@@ -32,7 +31,7 @@ import { EditGoalPage } from '../pages/edit-goal/edit-goal';
 import { EditInterventionPage } from '../pages/edit-intervention/edit-intervention';
 import { HelpPage } from '../pages/help/help';
 import { TermsPage } from '../pages/terms/terms';
-import { LookupPage } from '../pages/lookup/lookup';  // might later use for searching user's own p/g/i
+// import { LookupPage } from '../pages/lookup/lookup';  // might later use for searching user's own p/g/i
 import { LookupPlanPage } from '../pages/lookup-plan/lookup-plan';
 import { TextPlanPage } from '../pages/text-plan/text-plan';
 import { PreviewPage } from '../pages/preview/preview';
@@ -50,7 +49,7 @@ import { TopicMenuPage } from '../pages/topic-menu/topic-menu';
     AddProblemPage,
     AddGoalPage,
     AddInterventionPage,
-    LookupPage,
+    // LookupPage,
     LookupPlanPage,
     EditPlanPage,
     EditProblemPage,
@@ -82,7 +81,7 @@ import { TopicMenuPage } from '../pages/topic-menu/topic-menu';
     AddProblemPage,
     AddGoalPage,
     AddInterventionPage,
-    LookupPage,    
+    // LookupPage,    
     LookupPlanPage,    
     EditPlanPage,
     EditProblemPage,
@@ -98,7 +97,6 @@ import { TopicMenuPage } from '../pages/topic-menu/topic-menu';
   providers: [
     LocalStoreProvider,
     PersonalPlansProvider,
-    CacheProvider,
     StatusBar,
     File,
     EmailComposer,
