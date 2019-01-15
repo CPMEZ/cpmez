@@ -144,11 +144,13 @@ export class PersonalPlansProvider {
           this.local = { plans: [] };
           this.plans = this.local["plans"];
         }
+        this.events.publish('loadComplete', Date.now());
       })
       .catch((error: any) => {
         console.log('loadPlansLocal error', error);
         this.local = { plans: [] };  // create an empty
         this.plans = this.local["plans"];
+        this.events.publish('loadComplete', Date.now());
       });
   }
 
