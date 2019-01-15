@@ -40,13 +40,13 @@ $screen-xl-min: 1200px;
 }
     
 #welcome{
-    background: color($colors, primary);
+    background: color($colors, light);
     div {
-        color: color($colors, light);
-        background-color:  color($colors, primary);
+        color: color($colors, primary);
+        background-color:  color($colors, light);
     }
     h1{
-        color: color($colors, light);
+        color: color($colors, primary);
         font-size: 3.0rem;
         @include xs {
             font-size: 2.0rem;
@@ -62,18 +62,17 @@ $screen-xl-min: 1200px;
         }
     }
     h2{
-        // color: color($colors, dark);
-        color: color($colors, light);
+        color: color($colors, primary);
         font-size: 1.8rem;
     }
     h3{
-        color: color($colors, light);
-        background-color:  color($colors, primary);
+        color: color($colors, primary);
+        background-color:  color($colors, light);
         font-size: 1rem;
     }
     h4{
-        color: color($colors, light);
-        background-color:  color($colors, primary);
+        color: color($colors, primary);
+        background-color:  color($colors, light);
         font-size: 1.2rem;
     }
     .marginTop{
@@ -98,8 +97,8 @@ $screen-xl-min: 1200px;
  
     }
     .button{
-        background-color: color($colors, light);
-        color: color($colors, primary);
+        background-color: color($colors, primary);
+        color: color($colors, light);
     }
     .underline {
         text-decoration: underline; 
